@@ -14,7 +14,7 @@ class StrategyManager:
     def add_existing_strategies(self):
         # 기존 전략을 임시로 추가
         bb_strategy = BollingerBand1mStrategy()
-        ema_strategy = EMACross15mStrategy()
+        ema_strategy = EMACross15mStrategy(15)
 
         self.add_strategy(bb_strategy)
         self.add_strategy(ema_strategy)

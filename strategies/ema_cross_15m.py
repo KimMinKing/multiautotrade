@@ -1,6 +1,7 @@
 # strategies/ema_cross_15m.py
 class EMACross15mStrategy:
-    def __init__(self):
+    def __init__(self, interval_minutes=15):
+        self.interval_minutes = interval_minutes
         self.name = "EMA Cross 15m Strategy"
     
     def should_run(self, data):

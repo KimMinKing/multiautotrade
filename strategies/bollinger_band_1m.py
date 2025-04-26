@@ -1,6 +1,7 @@
 # strategies/bollinger_band_1m.py
 class BollingerBand1mStrategy:
-    def __init__(self):
+    def __init__(self, interval_minutes=1):
+        self.interval_minutes = interval_minutes
         self.name = "Bollinger Band 1m Strategy"
     
     def should_run(self, data):
