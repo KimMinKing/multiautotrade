@@ -1,14 +1,23 @@
-class StrategyManager:
-    def __init__(self, db_manager, data_manager):
-        pass
+# strategy_manager.py
+from strategies.bollinger_band_1m import BollingerBand1mStrategy
+from strategies.ema_cross_15m import EMACross15mStrategy
+from utils.logger import logger
 
-    def add_strategy(self, name):
-        pass
-    def remove_strategy(self, name):
-        pass
-    def set_weight(self, name, weight):
-        pass
-    def pause_strategy(self, name):
-        pass
-    def get_all_status(self):
-        return []  # 상태 리스트 반환
+class StrategyManager:
+    def __init__(self):
+        self.strategies = []
+
+    def add_strategy(self, strategy):
+        self.strategies.append(strategy)
+        logger.info(f"[{strategy.name}] 전략이 추가되었습니다.")
+    
+    def add_existing_strategies(self):
+        # 기존 전략을 임시로 추가
+        bb_strategy = BollingerBand1mStrategy()
+        ema_strategy = EMACross15mStrategy()
+
+        self.add_strategy(bb_strategy)
+        self.add_strategy(ema_strategy)
+
+    def get_strategies(self):
+        return self.strategies

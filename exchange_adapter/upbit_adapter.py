@@ -1,6 +1,3 @@
-from .base import ExchangeAdapter
-
-class UpbitAdapter(ExchangeAdapter):
-    def get_ticker(self, symbol):
-        pass
-    # ...
+class UpbitAdapter:
+    def place_order(self, exchange, symbol, side, quantity):
+        print(f"[UpbitAdapter] {side.upper()} {symbol} {quantity}개 주문 실행 (거래소: {exchange})")
